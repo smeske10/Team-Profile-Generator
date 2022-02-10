@@ -1,8 +1,7 @@
-// const Members = require('./members');
-// const Team = require("./team");
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHTML = require('./generatehtml')
+const generateHTML = require('./generateHTML/generatehtml');
+const Team = require("./team/team");
 
 const inquire = () => {
     inquirer
@@ -99,7 +98,7 @@ const inquire = () => {
                 inquire()
             }
             else if (data.members === 'no') {
-                fs.writeFile(`team.html`, generateHTML(data),
+                fs.writeFile(`index.html`, generateHTML(data),
                     error => {
                         if (error) {
                             console.log('Please input all the data')

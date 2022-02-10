@@ -1,4 +1,7 @@
+const generateCard = require('./generatecard')
+
 function generateHTML(data) {
+    
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -15,23 +18,7 @@ function generateHTML(data) {
     
     <body>
             <div class="d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">${this.name}</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">☕ ${this.title}</h6>
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="">${this.id}</a></li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                      </ul>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
-                    </div>
-                  </div>
             </div>
-    
-        </div>
     </body>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -46,6 +33,7 @@ function generateHTML(data) {
     <script src="./index.js"></script>
     
     </html>`
+
 }
 
 module.exports = generateHTML;

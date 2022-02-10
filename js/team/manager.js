@@ -1,8 +1,9 @@
 const Team = require("./team");
 
 class Manager extends Team {
-    constructor(id, office) {
-        this.id = id;
+    constructor(office) {
         this.office = office;
     }
 }
+
+module.exports = Manager;
