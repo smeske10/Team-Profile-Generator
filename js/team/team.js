@@ -1,6 +1,5 @@
 class Team {
     constructor(title, name, id, email) {
-                this.members = []
                 this.title = title,
                 this.name = name,
                 this.id = id,

@@ -1,15 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHTML = require('./generateHTML/generatehtml.js');
-const Manager = require("./team/manager");
-const Intern = require("./team/intern");
-const Engineer = require("./team/engineer");
-const Team = require('./team/team.js');
+const generateHTML = require('./js/generateHTML/generatehtml');
+const Manager = require("./js/team/manager");
+const Intern = require("./js/team/intern");
+const Engineer = require("./js/team/engineer");
 
 const team = []
 
 const inquire = () => {
-    inquirer
+    return inquirer
         .prompt([
             {
                 type: 'list',
@@ -97,64 +96,44 @@ const inquire = () => {
                 choices: ['yes', 'no'],
             },
         ]).then((data) => {
-            // fs.writeFile(`index.html`, generateHTML(),
-            //     error => {
-            //         if (error) {
-            //             console.log('Please input all the data')
-            //         }
-            //         console.log('Your Team Profile has been published')
-            //     }
-            // );
-            if (data.another === 'yes') {
-                if (data.title === 'manager'){
-                    let manager = new Manager();
-                    team.push(manager)
-                    console.log(manager);
-                }
-                if (data.title === 'engineer'){
-                    let engineer = new Engineer();
-                    team.push(engineer)
-                    console.log(engineer);
-                }
-                if (data.title === 'intern'){
-                    let intern = new Intern();
-                    team.push(intern)
-                    console.log(intern);
-                }
-                
-                inquire();
+            if (data.title === 'manager'){
+                const manager = new Manager(data.name, data.id, data.email, data.office);
+                console.log(manager);
             }
-            else if (data.another === 'no') {
-                if (data.title === 'manager'){
-                    let manager = new Manager();
-                    console.log(manager);
-                }
-                if (data.title === 'engineer'){
-                    let engineer = new Engineer();
-                    console.log(engineer);
-                }
-                if (data.title === 'intern'){
-                    let intern = new Intern();
-                    console.log(intern);
-                }
-                fs.createWriteStream(
-                    `</div>
-                </body>
-                
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                    crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-                    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                    crossorigin="anonymous"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-                    crossorigin="anonymous"></script>
-                <script src="./index.js"></script>
-                
-                </html>`)
+            if (data.title === 'engineer'){
+                const engineer = new Engineer(data.name, data.id, data.email, data.github);
+                console.log(engineer);
+            }
+            if (data.title === 'intern'){
+                const intern = new Intern(data.name, data.id, data.email, data.school);
+                console.log(intern);
+            }
+            if (data.another === 'yes') {
+                return inquire();
+            } else {
+                return team
             }
         })
     }
 
-inquire();
+const writeFile = (data) => {
+    fs.writeFile('./index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return
+        } else {
+            console.log("Your team's profile has been successfully created!")
+        }
+    })
+}
+
+inquire()
+    .then(team => {
+        return generateHTML(team);
+    })
+    .then(data => {
+        return writeFile(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });

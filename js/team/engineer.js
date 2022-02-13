@@ -8,6 +8,9 @@ class Engineer extends Team {
     getGithub() {
         return this.github
     }
+    getMember(){
+        return 'Engineer'
+    }
 }
 
 module.exports = Engineer
