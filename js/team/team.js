@@ -1,5 +1,5 @@
 class Team {
-    constructor(title, name, id, email) {
+    constructor(title, name,email, id) {
                 this.title = title,
                 this.name = name,
                 this.id = id,

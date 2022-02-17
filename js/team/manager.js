@@ -1,8 +1,8 @@
 const Team = require("./team");
 
 class Manager extends Team {
-    constructor(title, name, id, email, office) {
-        super(title, name, id, email)
+    constructor(title, name,email, id, office) {
+        super(title, name,email, id)
         this.office = office;
     }
     getOffice(){

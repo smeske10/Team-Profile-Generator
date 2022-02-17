@@ -98,15 +98,15 @@ const inquire = () => {
         ]).then((data) => {
             if (data.title === 'manager'){
                 const manager = new Manager(data.name, data.id, data.email, data.office);
-                console.log(manager);
+                team.push(manager)
             }
             if (data.title === 'engineer'){
                 const engineer = new Engineer(data.name, data.id, data.email, data.github);
-                console.log(engineer);
+                team.push(engineer)
             }
             if (data.title === 'intern'){
                 const intern = new Intern(data.name, data.id, data.email, data.school);
-                console.log(intern);
+                team.push(intern)
             }
             if (data.another === 'yes') {
                 return inquire();
