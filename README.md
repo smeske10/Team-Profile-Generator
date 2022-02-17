@@ -29,9 +29,9 @@ To install this application, please follow the steps below:
 
 ## Usage
 
-![Screenshot of Application](assets/images/screenshot.png)
+![Screenshot of Application](/assets/team_profile.png)
 
-![Recording of Application](https://youtu.be/DI1IhcJXfyY)
+![Recording of Application](https://youtu.be/7UYW5zWu-CQ)
 
 ## Features
 

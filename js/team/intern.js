@@ -1,7 +1,7 @@
 const Team = require("./team");
 
 class Intern extends Team {
-    constructor(title, name,email, id, school) {
+    constructor(title, name, email, id, school) {
         super(title, name, id, email)
         this.school = school;
     }

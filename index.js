@@ -97,15 +97,15 @@ const inquire = () => {
             },
         ]).then((data) => {
             if (data.title === 'manager'){
-                const manager = new Manager(data.name, data.id, data.email, data.office);
+                const manager = new Manager(data.title, data.name, data.id, data.email, data.office);
                 team.push(manager)
             }
             if (data.title === 'engineer'){
-                const engineer = new Engineer(data.name, data.id, data.email, data.github);
+                const engineer = new Engineer(data.title, data.name, data.id, data.email, data.github);
                 team.push(engineer)
             }
             if (data.title === 'intern'){
-                const intern = new Intern(data.name, data.id, data.email, data.school);
+                const intern = new Intern(data.title, data.name, data.id, data.email, data.school);
                 team.push(intern)
             }
             if (data.another === 'yes') {
