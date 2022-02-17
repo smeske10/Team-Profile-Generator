@@ -9,7 +9,7 @@ class Engineer extends Team {
         return this.github
     }
     getMember(){
-        return 'Engineer'
+        return 'engineer'
     }
 }
 

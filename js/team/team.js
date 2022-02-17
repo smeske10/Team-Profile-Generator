@@ -15,7 +15,7 @@ class Team {
         return this.email
     }
     getMember(){
-        return 'Member'
+        return 'member'
     }
 }
 

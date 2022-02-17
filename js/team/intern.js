@@ -9,7 +9,7 @@ class Intern extends Team {
         return school
     }
     getMember(){
-        return 'Intern'
+        return 'intern'
     }
 }
 

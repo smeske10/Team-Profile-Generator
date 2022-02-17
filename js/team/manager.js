@@ -9,7 +9,7 @@ class Manager extends Team {
         return this.office
     }
     getMember(){
-        return 'Manager'
+        return 'manager'
     }
 }
 

@@ -58,7 +58,7 @@ generateHTML = (team) => {
 
     for (let i = 0; i < team.length; i++) {
         const employee = team[i];
-        const role = employee.getRole(); 
+        const role = employee.getMember(); 
 
         if (role === 'manager') {
             const managerCard = generateManager(employee);
@@ -80,13 +80,15 @@ generateHTML = (team) => {
         
     }
 
-    const employeeCards = arr.join('')
+    const cards = arr.join('')
 
-    const generateTeam = generateTeamCard(employeeCards); 
+    console.log(cards)
+
+    const generateTeam = generateTeamCard(cards); 
     return generateTeam;
 
 }
- const generateTeamCard = function(employeeCards) {
+ const generateTeamCard = function(cards) {
 
     return `<!DOCTYPE html>
     <html lang="en">
@@ -105,7 +107,7 @@ generateHTML = (team) => {
     <body>
         <div class="d-flex justify-content-center">
         <div class="row justify-content-center" id="team-cards">
-        ${employeeCards}
+        ${cards}
         </div>
     </body>
         
